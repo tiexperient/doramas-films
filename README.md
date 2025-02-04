@@ -1,31 +1,42 @@
-# Tecnologias utilizadas
+# 🎬 Dorama Stream 🚀
 
-* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
-* Angular Material
-* ìcones do Google Fonts
-* Rotas
-* Services
+Bem-vindo(a) ao **Dorama Stream**! 🎥🌟 Se você ama doramas e quer uma experiência incrível navegando por filmes asiáticos, este marketplace foi feito para você! Com um design moderno e uma navegação intuitiva, o DoramaStream oferece tudo o que você precisa para explorar, adicionar ao carrinho e finalizar sua compra com facilidade! 💖✨
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Funcionalidades
 
-## Code scaffolding
+✅ **Lista de filmes**: Descubra os melhores doramas e escolha seus favoritos! 🍿💖  
+✅ **Quantidade no carrinho**: Visualize quantos filmes estão no seu carrinho em tempo real! 🛍️  
+✅ **Checkout dinâmico**: Um processo de compra fluido e rápido! 🚀  
+✅ **Formulário de pagamento**: Layout fantástico para inserir informações do cartão de crédito! 💳✨  
+✅ **Validação de dados**: Segurança garantida com campos validados! 🔒  
+✅ **Mensagem de compra bem-sucedida**: Um toque especial para finalizar sua experiência! 🎉  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Tudo isso com uma interface moderna, responsiva e envolvente! 😍🔥
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 💻 Tecnologias Utilizadas
 
-## Running unit tests
+🚀 **Angular CLI 14.0.0**  
+⚡ **TypeScript**
+🎨 **HTML & CSS**  
+⚙️ **Services & Rotas** para otimizar a navegação e funcionalidades do app.  
+📂 **dados/dataFake.ts**: Para organizar as informações do marketplace sem necessidade de servidor externo.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🌍 Visualize o Projeto Online
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🔗 Acesse agora: [DoramaStream](https://doramastream.netlify.app/)  
+👩🏼‍💻 Portfólio: [Meu Portfólio Profissional](https://ti-experient.netlify.app/)  
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📌 Sobre o Projeto
+
+Este projeto é uma **segunda versão** do marketplace já publicado no GitHub: [Angular Marketplace](https://github.com/tiexperient/angular-marketplace). A diferença principal é que esta versão **não utiliza servidor externo**, garantindo mais simplicidade e eficiência! 🚀
+
+📢 Sinta-se à vontade para explorar o código, contribuir e testar a plataforma! 
+Criado com muito carinho e dedicação por **Célia Medeiros** 💛✨
