@@ -1,6 +1,7 @@
 # 🎬 Dorama Stream 🚀
 
-Bem-vindo(a) ao **Dorama Stream**! 🎥🌟 Se você ama doramas e quer uma experiência incrível navegando por filmes asiáticos, este marketplace foi feito para você! Com um design moderno e uma navegação intuitiva, o DoramaStream oferece tudo o que você precisa para explorar, adicionar ao carrinho e finalizar sua compra com facilidade! 💖✨
+Bem-vindo(a) ao **Dorama Stream**! 🎥🌟<br> 
+Se você ama doramas e quer uma experiência incrível navegando por filmes asiáticos, este marketplace foi feito para você! Com um design moderno e uma navegação intuitiva, o DoramaStream oferece tudo o que você precisa para explorar, adicionar ao carrinho e finalizar sua compra com facilidade! 💖✨
 
 ---
 
@@ -38,5 +39,5 @@ Tudo isso com uma interface moderna, responsiva e envolvente! 😍🔥
 
 Este projeto é uma **segunda versão** do marketplace já publicado no GitHub: [Angular Marketplace](https://github.com/tiexperient/angular-marketplace). A diferença principal é que esta versão **não utiliza servidor externo**, garantindo mais simplicidade e eficiência! 🚀
 
-📢 Sinta-se à vontade para explorar o código, contribuir e testar a plataforma! 
+📢 Sinta-se à vontade para explorar o código, contribuir e testar a plataforma!<br> 
 Criado com muito carinho e dedicação por **Célia Medeiros** 💛✨
