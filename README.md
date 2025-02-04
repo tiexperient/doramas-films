@@ -39,5 +39,5 @@ Tudo isso com uma interface moderna, responsiva e envolvente! 😍🔥
 
 Este projeto é uma **segunda versão** do marketplace já publicado no GitHub: [Angular Marketplace](https://github.com/tiexperient/angular-marketplace). A diferença principal é que esta versão **não utiliza servidor externo**, garantindo mais simplicidade e eficiência! 🚀
 
-📢 Sinta-se à vontade para explorar o código, contribuir e testar a plataforma!<br> 
+📢 Sinta-se à vontade para explorar o código, contribuir e testar a plataforma!<br><br> 
 Criado com muito carinho e dedicação por **Célia Medeiros** 💛✨
