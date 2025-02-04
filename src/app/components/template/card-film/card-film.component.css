@@ -1,0 +1,41 @@
+.mat-card-container {
+    display: inline-flex;
+    margin-top: 15px;
+}
+
+.card-film {
+    width: 300px;
+    height: 100%;
+    margin: 0 15px 15px 0;
+}
+
+.card-content {
+    text-align: center;
+    padding: 5px;
+}
+
+.card-content img {
+    width: 250px;
+    transition: .2s;
+}
+.card-content img:hover {
+    opacity: .8;
+}
+
+.card-description {
+    text-align: left;
+}
+
+.sub-description {
+    font-size: 14px;
+    display: flex;
+    gap: 10px; /* Espaçamento entre os elementos */
+    margin-bottom: -10px;
+}
+
+.legend{
+    font-size: 15ps;
+    text-align: left;
+    line-height: 20px;
+    font-weight: 700;
+}

@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
+
+body {
+  background: #1C2B3C;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  padding: 50px 15px;
+}
+
+.card-form {
+  max-width: 570px;
+  margin: auto;
+  width: 100%;
+}
+
+.card-form__inner {
+  background: #fff;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  border-radius: 10px;
+  padding: 35px;
+  padding-top: 180px;
+}
+
+.card-form__row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-form__col {
+  flex: auto;
+  margin-right: 35px;
+}
+
+.card-form__col:last-child {
+  margin-right: 0;
+}
+
+.card-form__col.-cvv {
+  max-width: 150px;
+}
+
+.card-form__group {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card-form__group .card-input__input {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.card-form__group .card-input__input:last-child {
+  margin-right: 0;
+}
+
+.card-item {
+  max-width: 430px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Frente do Cartão */
+.card-item.-active .card-item__side.-front {
+  transform: perspective(1000px) rotateY(160deg) rotateX(0deg) rotateZ(0deg);
+}
+
+/* Verso do cartão */
+.card-item.-active .card-item__side.-back {
+  transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);
+  background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/1.jpeg");
+}
+
+.card-item__focus {
+  position: absolute;
+  z-index: 3;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.card-item__focus:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(8, 20, 47);
+  height: 100%;
+  border-radius: 5px;
+  filter: blur(25px);
+  opacity: 0.5;
+}
+
+.card-item__focus.-active {
+  opacity: 1;
+}
+
+.card-item__side {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+  transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
+  transform-style: preserve-3d;
+  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  backface-visibility: hidden;
+  height: 100%;
+}
+
+.card-item__side.-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
+  z-index: 2;
+  padding: 0;
+  height: 100%;
+}
+
+.card-item__side.-back .card-item__cover {
+  transform: rotateY(-180deg);
+}
+
+.card-item__bg {
+  max-width: 100%;
+  display: block;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-item__cover {
+  height: 100%;
+  background-color: #1c1d27;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-item__cover:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 2, 29, 0.45);
+}
+
+.card-item__top {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.card-item__chip {
+  width: 60px;
+}
+
+.card-item__type {
+  top: 20px;
+  height: 45px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 100px;
+  margin-left: auto;
+  width: 100%;
+}
+.card-item__type Img {
+  max-width: 100%;
+  object-fit: contain;
+  max-height: 100%;
+  object-position: top right;
+}
+
+
+.card-item__info {
+  color: #fff;
+  width: 100%;
+  max-width: calc(100% - 85px);
+  padding: 10px 15px;
+  font-weight: 500;
+  display: block;
+  cursor: pointer;
+}
+
+.card-item__name {
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 480px) {
+  .card-item__name {
+    font-size: 16px;
+  }
+}
+
+.card-item__number {
+  font-weight: 500;
+  color: #fff;
+  font-size: 27px;
+  margin-bottom: 35px;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.card-list {
+  margin-bottom: -130px;
+}
+
+.card-input {
+  margin-bottom: 20px;
+}
+
+.card-input__label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #1a3b5d;
+  width: 100%;
+  display: block;
+  user-select: none;
+}
+
+.card-input__input {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid #ced6e0;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+  padding: 5px 15px;
+  background: none;
+  color: #1a3b5d;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.card-input__input:hover,
+.card-input__input:focus {
+  border-color: #3d9cff;
+}
+
+.card-input__input:focus {
+  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
+}
+
+.card-input__input.-select {
+  -webkit-appearance: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC');
+  background-size: 12px;
+  background-position: 90% center;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+}
+
+.slide-fade-up-enter-active {
+  transition: all 0.25s ease-in-out;
+  transition-delay: 0.1s;
+  position: relative;
+}
+.slide-fade-up-leave-active {
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+}
+.slide-fade-up-enter {
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+}
+.slide-fade-up-leave-to {
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+}
+
+.slide-fade-right-enter-active {
+  transition: all 0.25s ease-in-out;
+  transition-delay: 0.1s;
+  position: relative;
+}
+.slide-fade-right-leave-active {
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+}
+.slide-fade-right-enter {
+  opacity: 0;
+  transform: translateX(10px) rotate(45deg);
+  pointer-events: none;
+}
+.slide-fade-right-leave-to {
+  opacity: 0;
+  transform: translateX(-10px) rotate(45deg);
+  pointer-events: none;
+}
+
+.github-btn {
+  position: absolute;
+  right: 40px;
+  bottom: 50px;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
+  background: #24292e;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 16px;
+  text-align: center;
+  transition: all .3s ease-in-out;
+}
+
+/* Últimas Melhorias */
+.card-item__holder{
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  left: 20px;
+  bottom: 140px;
+}
+
+.card-item__name-title{
+  font-family: "Source Code Pro";
+  position: absolute;
+  color: rgb(212, 212, 212);
+  bottom: 40px;
+  left: 20px;
+}
+.card-item__name{
+  font-size: 20px;
+  position: absolute;
+  bottom: 20px; /* Ajuste a posição do nome do titular */
+  left: 20px;
+  color: white;
+}
+
+.card-item__dateTitle{
+  font-family: "Source Code Pro";
+  position: absolute;
+  color: rgb(212, 212, 212);
+  bottom: 40px;
+  right: 20px;
+}
+
+.card-item__date{
+  position: absolute;
+  color: white;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+
+.bandeira {
+  color: white;
+  display: flex;
+  justify-content: end;
+  margin-top: 75px;
+  margin-right: 10px;
+  opacity: 0.6; /* 50% de transparência */
+}
+
+/* Faixa magnética */
+.magnetic-strip {
+    width: 100%;
+    height: 50px;
+    background-color: #333333e1;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.card-item__cvvTitle{
+    color: white;
+    display: flex;
+    justify-content: end;
+    margin-top: 120px;
+    margin-right: 20px;
+    font-family: "Source Code Pro";
+    color: rgb(123, 123, 123);
+    font-size: 16px;
+}
+
+/* Input do CVV */
+.cvv-input {
+    margin-right: 17px;
+    margin-top: 10px;
+    width: 60px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align:end;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: rgb(62, 62, 62);
+    right: 20px;
+}
+
+/* Área branca do CVV */
+.cvv-container {
+    background-color: white;
+    color: #1c1d27;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    position: absolute;
+    bottom: 90px;
+    padding: 5px;
+    
+  }

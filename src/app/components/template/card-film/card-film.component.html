@@ -1,0 +1,33 @@
+<mat-card-content class="mat-card-container">
+    <mat-card class="card-film">
+        <mat-card-title>
+            <h2>{{ film.name }}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h3>{{ film.category }}</h3>
+        </mat-card-subtitle>
+        <mat-card-content class="card-content">
+            <!--<img src="{{ film.imgLink }}" alt="Capa do Filme">-->
+            <img [src]="film.imgLink" alt="{{ film.name }}">
+            <p class="card-description">
+                {{ film.description }}
+            </p>
+            <div class="sub-description">
+                <p class="legend">Lançamento: </p><p>{{ film.year }}</p>
+            </div>
+            <div class="sub-description">
+                <p class="legend">Classificação mínima: </p><p>{{ film.classification }}</p>
+            </div>
+            <div class="sub-description">
+                <p class="legend">Estrelando: </p><p>{{ film.star }}</p>
+            </div>
+            <div class="sub-description">
+                <p class="legend">Temporada: </p><p>{{ film.episodios }}</p>
+            </div>
+            <div class="sub-description">
+                <p class="legend">Valor: </p><p>{{ film.price | currency: "BRL" }}</p>
+            </div><br>
+            <app-select-button [film]="film"></app-select-button>
+        </mat-card-content>
+    </mat-card>
+</mat-card-content>

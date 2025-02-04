@@ -1,0 +1,220 @@
+
+<mat-card class="mat-card-main mat-elevation-z4">
+    <mat-card-title>
+        <h2>Checkout</h2>
+    </mat-card-title>
+    <mat-card>
+        <h2>{{ listSelectedFilms.length }} Filmes Selecionados</h2>
+        <h3>Valor Total: {{ totalPrice | currency: "BRL" }}</h3>
+        <mat-card class="mat-card-film" [class.isValid]="disabled === true" *ngFor="let film of listSelectedFilms">
+            <mat-card-content class="mat-card-content">
+                <div>
+                    <mat-card-title>
+                        <h2>{{ film.name }}</h2>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{ film.price | currency: "BRL"}}
+                    </mat-card-subtitle>
+                </div>
+                <button mat-flat-button color="warn" (click)="exclude(film)">
+                    Excluir
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </mat-card>
+    <mat-card-actions class="actions-container">
+        <button mat-flat-button color="warn" (click)="excludeAll()" [disabled]="disabled === true" class="excludeAll">
+            Excluir Todos
+        </button>
+    </mat-card-actions>
+
+       <!-- Credit Card Start  -->
+       <div class="wrapper">
+        <div class="card-form">
+          <div class="card-list">
+            <div class="card-item" [ngClass]="{'-active': isCardFlipped}">
+              <div class="card-item__side -front">
+                <div class="card-item__focus" [ngStyle]="focusElementStyle" #focusElement></div>
+                <div class="card-item__cover"><!-- Background do Cartão -->
+                  <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/1.jpeg" class="card-item__bg">
+                </div>
+      
+                <div class="card-item__wrapper">
+                  <div class="card-item__top">
+                    <img src="https://png.pngtree.com/png-clipart/20240203/original/pngtree-credit-card-chip-shopping-photo-png-image_14220048.png" class="card-item__chip">
+                    </div>
+                    <div class="card-item__type"> <!-- Bandeira -->
+                      <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" class="card-item__typeImg">
+                    </div>
+    
+                  <div class="card-item__content">
+                    <label for="cardName" class="card-item__info">
+                      <div class="card-item__holder">{{cardNumber.length ? cardNumber : '**** **** **** ****'}}</div>
+                      <label class="card-item__name-title">Titular do Cartão</label>
+                      <div class="card-item__name card-input__input-two">{{cardName.length ? cardName : 'Nome completo'}}</div>
+                    </label>
+    
+                    <label for="cardMonth" class="card-item__dateTitle">Validade</label>
+                    <div class="card-item__date">
+                      <label for="cardMonth" class="card-item__dateItem">{{cardMonth || 'Mês'}}</label>
+                      /
+                      <label for="cardYear" class="card-item__dateItem">{{cardYear ? cardYear.slice(2, 4) : 'Ano'}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-item__side -back">
+                <div class="magnetic-strip"></div> <!-- Faixa magnética -->
+                <div class="card-item__cvv">
+                  <div class="card-item__cvvTitle">CVV</div>
+                  <div class="card-item__cvvBand">
+                <div class="cvv-container">
+                    <span class="cvv-input">{{cardCvv.length ? cardCvv : '***'}}</span>
+                </div>
+                  </div>
+                </div>
+                <div class="bandeira">
+                <img style="height: 40px;" src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png" class="card-item__typeImg">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="card-form__inner">
+            <div class="card-input">
+              <label for="cardNumber" class="card-input__label">Cartão Nº</label>
+              <input
+                type="text"
+                id="cardNumber"
+                class="card-input__input"
+                [(ngModel)]="cardNumber"
+                (focus)="focusInput($event)"
+                (blur)="blurInput()"
+                (input)="formatCardNumber($event)"
+                maxlength="19" 
+                pattern="\d{4}(\s\d{4}){3}"
+              >
+            </div>
+              <div class="card-input">
+                <label for="cardName" class="card-input__label">Nome do Titular</label>
+                <input 
+                  type="text" 
+                  id="cardName" 
+                  class="card-input__input" 
+                  [(ngModel)]="cardName" 
+                  (focus)="focusInput($event)" 
+                  (blur)="blurInput()" 
+                  (input)="formatCardName($event)"
+                  maxlength="26"
+                >
+              </div>
+            <div class="card-form__row">
+              <div class="card-form__col">
+                <div class="card-form__group">
+                  <!--<label for="cardMonth" class="card-input__label">Expiration Date</label>-->
+                  <select style="width: 50%; margin-top: 20px;" class="card-input__input" id="cardMonth" [(ngModel)]="cardMonth" (focus)="focusInput($event)" (blur)="blurInput()">
+                    <option value="" disabled selected>Mês</option>
+                    <option *ngFor="let n of [].constructor(12); let i = index" [value]="i + 1">{{ (i + 1) < 10 ? '0' + (i + 1) : (i + 1) }}</option>
+                  </select>
+                  <select style="width: 50%; margin-top: 20px;" class="card-input__input" id="cardYear" [(ngModel)]="cardYear" (focus)="focusInput($event)" (blur)="blurInput()">
+                    <option value="" disabled selected>Ano</option>
+                    <option *ngFor="let n of [].constructor(12); let i = index" [value]="minCardYear + i">{{ minCardYear + i }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-form__col -cvv">
+                <div class="card-input">
+                  <label for="cardCvv" class="card-input__label">CVV</label>
+    
+                  <input
+                  type="text"
+                  class="card-input__input"
+                  id="cardCvv"
+                  [(ngModel)]="cardCvv"
+                  (focus)="flipCard(true)"
+                  (blur)="flipCard(false)"
+                  (input)="restrictToCvv($event)"
+                  maxlength="3"
+                  pattern="\d{3}"
+                  [attr.aria-invalid]="cardCvv.length > 3 ? 'true' : 'false'"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Credit Card End -->
+
+    <mat-card class="mat-form">
+        <form id="form">
+            <strong>Preencha as informações abaixo para Entrega</strong>
+            <p>
+                <mat-form-field appearance="outline" class="input-form">
+                    <mat-label>
+                        {{
+                            disabled ? "Por favor, selecione pelo menos 1 filme" : "Qual é o seu nome?"
+                        }}
+                    </mat-label>
+                    <input 
+                        matInput placeholder="Seu nome" 
+                        required 
+                        name="name" 
+                        [disabled]="disabled === true" 
+                       [(ngModel)]="client.name"
+                    />
+                    <i class="material-icons" matSuffix required>person</i>
+                    <mat-hint>Ex.: João, Maria...</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline" class="input-form">
+                    <mat-label>
+                        {{
+                            disabled ? "Por favor, selecione pelo menos 1 filme" : "Informe o seu endereço"
+                        }}
+                    </mat-label>
+                    <input 
+                        matInput placeholder="Seu endereço" 
+                        required 
+                        name="address" 
+                        [disabled]="disabled === true"
+                        [(ngModel)]="client.address"
+                    />
+                    <i class="material-icons" matSuffix required>home</i>
+                    <mat-hint>Ex.: Avenida Boa Vista...</mat-hint>
+                </mat-form-field>
+            </p>
+                <mat-form-field appearance="fill" class="input-form">
+                    <mat-label>
+                        Digite a sua senha
+                    </mat-label>
+                    <input 
+                        matInput
+                        [type]="hide ? 'password' : 'text'"
+                        required 
+                        name="password" 
+                        [(ngModel)]="client.password"
+                        [disabled]="disabled === true"
+                    />
+                    <button mat-icon-button mat-Suffix (click)="hide = !hide">
+                        <i class="material-icons" matSuffix required>{{ hide ? "visibility off" : "visibility" }}</i>
+                    </button>
+                </mat-form-field>
+            <button 
+                type="submit" 
+                mat-flat-button 
+                class="mat-pay" 
+                (click)="payment()" 
+                [disabled]="client.password == undefined || client.password == '' || totalPrice == 0 ? 'true' : 'false'"
+            >
+                Pagar
+            </button>
+            <button mat-flat-button class="mat-cancel" (click)="cancel()">{{ disabled ? "Voltar" : "Cancelar" }}</button>
+        </form>
+    </mat-card>
+</mat-card>
+
+
+
+

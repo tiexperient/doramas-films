@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>
+        Lista de Filmes
+    </mat-card-title>
+    <mat-card-subtitle>
+        <h2>{{ listFilms.length }} filmes encontrados</h2>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <app-card-film *ngFor="let film of listFilms" [film]="film"></app-card-film>
+    </mat-card-content>
+</mat-card>
+
+<div class="fab-button">
+    <button mat-fab
+        color="primary"
+        matBadge="{{ listSelectedFilmsCount }}"
+        matBadgePosition="after"
+        matBadgeColor="accent"
+        [matBadgeHidden]="hidden"
+        (mouseover)="toggleBadgeVisibility()"
+        (mouseout)="toggleBadgeVisibility()"
+        (click)="toCheckout()">
+        <i class="material-icons">shopping_cart</i>
+        <p class="btn-description">Finalizar Compra!</p>
+    </button>
+</div>

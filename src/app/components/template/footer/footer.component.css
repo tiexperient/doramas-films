@@ -1,0 +1,31 @@
+.footer {
+    background-color: #2c2c2c;
+    color: #f2f2f2;
+    position: fixed;
+    bottom: 0; /* Sempre ao fim da tela */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.middle{
+    vertical-align: middle;
+}
+
+.footer span {
+    opacity: .8;
+    transition: .2s;
+}
+.footer span:hover {
+    opacity: 1;
+}
+
+.footer i, a {
+    text-decoration: none;
+    color: #f2f2f2;
+    transition: .2s;
+    background-image: linear-gradient(to right, #30CFD0 0%, #6935a8 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;          /*colore apenas dentro do objeto selecionado*/
+    -webkit-text-fill-color: transparent;
+}
