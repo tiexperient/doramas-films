@@ -21,7 +21,7 @@ Tudo isso com uma interface moderna, responsiva e envolvente! 😍🔥
 ## 💻 Tecnologias Utilizadas
 
 🚀 **Angular CLI 14.0.0**  
-⚡ **TypeScript**
+⚡ **TypeScript**<br>
 🎨 **HTML & CSS**  
 ⚙️ **Services & Rotas** para otimizar a navegação e funcionalidades do app.  
 📂 **dados/dataFake.ts**: Para organizar as informações do marketplace sem necessidade de servidor externo.  
