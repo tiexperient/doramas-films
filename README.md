@@ -31,7 +31,8 @@ Tudo isso com uma interface moderna, responsiva e envolvente! 😍🔥
 ## 🌍 Visualize o Projeto Online
 
 🔗 Acesse agora: [Dorama Stream](https://doramastream.netlify.app/)  
-👩🏼‍💻 Portfólio: [Meu Portfólio Profissional](https://ti-experient.netlify.app/)  
+👩🏼‍💻 Portfólio: [Meu Portfólio Profissional](https://ti-experient.netlify.app/)<br>
+📢 Blog: [Meu Blog Pessoal](https://tiexperient-blog.netlify.app/)   
 
 ---
 
